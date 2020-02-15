@@ -1,6 +1,8 @@
 const src = __dirname + '/src';
 const dist = __dirname + '/dist/'
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
@@ -32,10 +34,11 @@ module.exports = {
                 loader: "babel-loader",
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: [
-                    "vue-style-loader",
-                    "css-loader",
+                { loader: MiniCssExtractPlugin.loader },
+                { loader: 'css-loader' },
+                { loader: 'sass-loader' },
                 ],
             },
             {
@@ -66,8 +69,12 @@ module.exports = {
         inject: true,
         chunks: ['index'], // insert to the root of output folder
       }),
+      new MiniCssExtractPlugin({ filename: 'css/[name].css' }),
       new VueLoaderPlugin()
     ],
+    optimization: {
+      minimizer: [new OptimizeCSSAssetsPlugin({})],
+    },
     resolve: {
         extensions: [".vue", ".js"],
         alias: {
