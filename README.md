@@ -1,4 +1,4 @@
-webpack4 sample
+Vue.js sample
 ====
 
 ## Description
@@ -14,15 +14,17 @@ https://design.isystk.com/vuejs/
 
 ## Install
 
-yarn install
+``` bash
+# install
+$ yarn install
 
 # static generate
-yarn run build
+$ yarn run build
 
 # server start
-yarn run dev
-open http://localhost:3000/
-
+$ yarn run dev
+$ open http://localhost:3000/
+```
 ## Contribution
 
 ## Licence
