@@ -2,7 +2,7 @@
   <div class="wrap">
     <Header></Header>
     <div class="content">
-      <DetailList></DetailList>
+      <router-view></router-view>
       <SideMenu></SideMenu>
     </div>
     <Footer></Footer>

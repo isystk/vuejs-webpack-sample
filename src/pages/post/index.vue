@@ -1,14 +1,5 @@
 <template>
-  <div class="wrap">
-    <Header></Header>
-    <div class="content">
-      <main>
-        <Detail :post-id="$route.params.id"></Detail>
-      </main>
-      <side-menu></side-menu>
-    </div>
-    <Footer></Footer>
-  </div>
+  <Detail :post-id="$route.params.id"></Detail>
 </template>
 
 <script>
