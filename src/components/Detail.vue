@@ -5,8 +5,8 @@
     </div>
     <div class="entry-content" >
       <template v-for="(e, index) in post.contents" >
-      <h2 :key="index">{{e.subTitle}}</h2>
-      <p :key="index" v-html="e.text"></p>
+      <h2 :key="`subTitle-${index}`">{{e.subTitle}}</h2>
+      <p :key="`text-${index}`" v-html="e.text"></p>
       </template>
     </div>
     <div class="clearfix"></div>
@@ -19,11 +19,17 @@ export default {
   },
   data () {
     return {
-      post : this.$store.getters.getBlogDetail(this.postId)
+      post : null
     }
   },
-  methods: {
+  props: ['postId'],
+  created() {
+    this.post = this.$store.getters.getPostDetail(this.postId);
   },
+  computed: {
+  },
+  methods: {
+  }
 }
 </script>
 
