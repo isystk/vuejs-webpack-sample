@@ -56,7 +56,20 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
+            {
+                type: "javascript/auto",
+                test: /\.json$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            outputPath : 'data/',
+                            name: "[name].[ext]",
+                        },
+                    },
+                ],
+            },
         ]
     },
     plugins: [
